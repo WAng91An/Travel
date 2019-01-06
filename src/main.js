@@ -4,8 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import fastClick from 'fastClick'
-import './assets/styles/reset.css'
-import './assets/styles/border.css'
+import 'stylesPath/reset.css'
+import 'stylesPath/border.css'
+import 'stylesPath/iconfont.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body) /* fastclick可以使用了 */
