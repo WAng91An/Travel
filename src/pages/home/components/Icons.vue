@@ -86,33 +86,35 @@ export default {
         height: 0
         overflow: hidden
         padding-bottom: 50% /*width: 100%，padding-bottom: 50% 其实下面的padding就是宽度的一半*/
-    .icon
-        position: relative
-        overflow: hidden
-        float: left
-        height: 0
-        width: 25%
-        padding-bottom: 25%
-        .icon-img
-            position: absolute /*icon分为图片和文字部分，设置图片的部分确定*/
-            top: 0
-            left: 0
-            right: 0
-            bottom: .44rem
-            /*box-sizing: border-box
-            padding: .1rem*/
-            .icon-img-content
-                height: 100%
-                display: block /*居中*/
-                margin: 0 auto
-        .icon-desc
-            position: absolute
-            left: 0
-            right: 0
-            bottom: 0
-            height: .44rem
-            line-height: .44rem
-            text-align: center
-            color: $darkTextColor
-            ellipsis() /* 抽取出来的方法：实现如果字体太多显示不全时显示... */
+    .icons
+      margin-top: .1rem
+      .icon
+          position: relative
+          overflow: hidden
+          float: left
+          height: 0
+          width: 25%
+          padding-bottom: 25%
+          .icon-img
+              position: absolute /*icon分为图片和文字部分，设置图片的部分确定*/
+              top: 0
+              left: 0
+              right: 0
+              bottom: .44rem
+              /*box-sizing: border-box
+              padding: .1rem*/
+              .icon-img-content
+                  height: 100%
+                  display: block /*居中*/
+                  margin: 0 auto
+          .icon-desc
+              position: absolute
+              left: 0
+              right: 0
+              bottom: 0
+              height: .44rem
+              line-height: .44rem
+              text-align: center
+              color: $darkTextColor
+              ellipsis() /* 抽取出来的方法：实现如果字体太多显示不全时显示... */
 </style>
