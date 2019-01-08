@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-      <swiper :options="swiperOption">
-        <swiper-slide v-for="item of swiperList" :key="item.id">
+      <swiper :options="swiperOption" v-if="showList">
+        <swiper-slide v-for="item of list" :key="item.id">
             <img class="swiper-img" :src="item.imgUrl">
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,20 +12,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data: function () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination', // 给swiper传递参数来生成下面的小点点
         loop: true // 支持循环轮播
-      },
-      swiperList: [ {
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg'
       }
-      ]
+    }
+  },
+  computed: {
+    showList: function () {
+      return this.list.length // 防止首次渲染的时候展示的是第四张轮播图，这是因为一开始传递进来是空数组的问题
     }
   }
 }
@@ -41,7 +41,7 @@ export default {
         overflow: hidden
         height: 0
         background: #ccc
-        padding-bottom: 26.66% /*31.25%*/
+        padding-bottom: 31.25% /*26.66% 31.25%*/
         .swiper-img
             width: 100%
 </style>

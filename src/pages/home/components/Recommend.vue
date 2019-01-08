@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-        <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+        <li class="item border-bottom" v-for="item of list" :key="item.id">
             <img class="item-img" :src="item.imgUrl">
             <div class="item-info">
                 <p class="item-info-title">{{item.title}}</p>
@@ -17,40 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data: function () {
-    return {
-      recommendList: [ {
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }, {
-        id: '0005',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }, {
-        id: '0006',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/95/95f38f28a6ff19cba3.img.jpg_200x200_af967e35.jpg',
-        title: '大连海洋世界游乐园',
-        desc: '浪漫大连站，浪漫的海洋主题乐园'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

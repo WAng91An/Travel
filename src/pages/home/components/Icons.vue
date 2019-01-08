@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOption">
             <swiper-slide v-for="(page,index) of pages" :key="index">
                 <div class="icon" v-for="item of page" :key="item.id">
                     <div class="icon-img">
@@ -16,49 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data: function () {
     return {
-      iconsList: [ {
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0005',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0006',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0007',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0008',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '0009',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }, {
-        id: '00010',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门经典'
-      }]
+      swiperOption: {
+        autoplay: false // 不自己滚动，必须手动滑
+      }
     }
   },
   computed: {
@@ -66,7 +31,7 @@ export default {
       // 定义了一个二位数组：pages
       // 遍历iconsList，首先把pages[0]数组打满，然后pages[1]...
       const pages = []
-      this.iconsList.forEach(function (item, index) {
+      this.list.forEach(function (item, index) {
         const page = Math.floor(index / 8) // 向下取整
         if (!pages[page]) {
           pages[page] = []
