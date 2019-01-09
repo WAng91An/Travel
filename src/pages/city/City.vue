@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities='cities' :hotCities='hotCities'></city-list>
-    <city-alphabet :cities='cities'></city-alphabet>
+    <city-list :cities='cities' :hotCities='hotCities' :letter="letter"></city-list>
+    <city-alphabet :cities='cities' @change="handleChange"></city-alphabet>
   </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
   data: function () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      letter: ''
     }
   },
   methods: {
@@ -39,6 +40,10 @@ export default {
         this.hotCities = data.hotCities
         this.cities = data.cities
       }
+    },
+    handleChange: function (letter) {
+      // 来接受子组件传递的字母信息，预存并且传递给另一个组件
+      this.letter = letter
     }
   },
   mounted: function () {
