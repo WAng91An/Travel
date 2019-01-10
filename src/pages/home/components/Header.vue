@@ -9,7 +9,8 @@
     </div>
     <router-link to="/city">
      <div class="header-right">
-         {{this.city}}
+         <!-- {{this.$store.state.city}} -->
+         {{currentCity}}
          <span class="iconfont arrow-icon">&#xe64a;</span>
      </div>
     </router-link>
@@ -17,10 +18,15 @@
 </template>
 
 <script>
+import { mapState } from 'Vuex'
+
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    // 把state中city数据映射到计算属性中的currentCity
+    ...mapState({
+      currentCity: 'city'
+    })
   }
 }
 </script>
@@ -29,7 +35,7 @@ export default {
   /*引入varibles.styl,用来存取一些共同的变量,比如背景颜色每个页面都用到
     stylesPath是通过build->webpack.base.conf.js修改的配置，抽取的一个替代变量
   */
-  @import '~stylesPath/varibles.styl';
+  @import '~stylesPath/varibles.styl'
   .header
     display: flex
     line-height: $headerHeight
@@ -52,7 +58,8 @@ export default {
         border-radius: .1rem
         flex: 1 /*自动撑开*/
     .header-right
-        width: 1.24rem
+        min-width: 1.04rem /* 当盒子内容宽度大于 min-width的值时，盒子随着内容的增加而被撑大，没有上上限，但是 盒子宽度的最小值是 设置的 min-width 的值。 */
+        padding: 0 .1rem
         float: right
         text-align: center
         color: #fff
