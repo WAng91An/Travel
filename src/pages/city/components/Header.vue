@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import '~stylesPath/varibles.styl';
+  @import '~stylesPath/varibles.styl'
   .header
     position: relative
     background: $bgColor
