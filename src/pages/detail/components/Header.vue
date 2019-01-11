@@ -38,6 +38,9 @@ export default {
   },
   activated: function () {
     window.addEventListener('scroll', this.handleScroll) // 实现吸顶，window监听scroll事件，发生就调用handleScroll
+  },
+  deactivated: function () {
+    window.removeEventListener('scroll', this.handleScroll) // 当此页面不显示的时候及时对全局的事件进行解绑
   }
 }
 </script>
