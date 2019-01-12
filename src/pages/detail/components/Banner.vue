@@ -59,7 +59,7 @@ export default {
       background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)) /*图片底部有一个从上到下的渐变色*/
       .banner-tittle
         flex: 1
-        font-size: .32rem
+        font-size: .28rem
         padding: 0 .2rem
       .banner-number
         margin-top: .14rem
