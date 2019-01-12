@@ -1,10 +1,10 @@
 <template>
 <div>
     <div class="detail-list" v-for="(item, index) of list" :key="index">
-        <div class="item-tittle border-bottom">
+        <div class="item-title border-bottom">
             <div class="item-icon">
             </div>
-            {{item.tittle}}
+            {{item.title}}
         </div>
         <div class="children-list" v-if="item.children">
             <detail-list :list="item.children"></detail-list>
@@ -33,7 +33,7 @@ export default {
     background: url(//s.qunarzz.com/piao/image/touch/sight/detail.png) 0 -.45rem no-repeat;
     margin-right: .1rem;
     background-size: .4rem 3rem;
-  .item-tittle
+  .item-title
     line-height: .8rem
     font-size: .28rem
     padding: 0 .2rem

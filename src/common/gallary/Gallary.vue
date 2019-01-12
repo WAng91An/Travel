@@ -2,7 +2,7 @@
   <div class="container" @click="handleGallaryClose">
     <div class="wrapper">
       <swiper :options="swiperOption">
-        <swiper-slide v-for="(item, index) of imgs" :key="index">
+        <swiper-slide v-for="(item, index) of gallaryImgs" :key="index">
           <img class="gallary-img" :src="item">
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -15,7 +15,7 @@
 export default {
   name: 'Gallary',
   props: {
-    imgs: Array
+    gallaryImgs: Array
   },
   data: function () {
     return {

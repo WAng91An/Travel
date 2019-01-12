@@ -1,17 +1,17 @@
 <template>
 <div>
   <div class="banner" @click="handleGallaryClick" >
-    <img class="banner-img" src="//img1.qunarzz.com/sight/p0/201408/04/2658d1395f6f4208dd5af222f14343b1.jpg_600x330_b10230e8.jpg"/>
+    <img class="banner-img" :src="bannerImg"/>
     <div class="banner-info">
       <div class="banner-tittle">
-        天下第一泉城风景区（AAAAA景区）
+        {{sightName}}
       </div>
       <div class="banner-number">
-        <span class="iconfont banner-icon">&#xe650;</span>39
+        <span class="iconfont banner-icon">&#xe650;</span>{{gallaryImgsNub}}
       </div>
     </div>
   </div>
-  <Gallary @gallaryClose="handleGallaryClose" v-show="showImages" :imgs="imgs"></Gallary>
+  <Gallary :gallaryImgs="gallaryImgs" @gallaryClose="handleGallaryClose" v-show="showImages" ></Gallary>
  </div>
 </template>
 
@@ -20,10 +20,14 @@ import Gallary from 'common/gallary/Gallary'
 
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data: function () {
     return {
-      showImages: false,
-      imgs: ['http://img1.qunarzz.com/sight/p0/1705/63/6394801722e3b3bca3.img.jpg_r_800x800_050c65d0.jpg', 'http://img1.qunarzz.com/sight/p0/1705/bd/bd762b97325c2019a3.img.jpg_r_800x800_61c453a5.jpg', 'http://img1.qunarzz.com/sight/p0/1705/6e/6ea8bb86e600c8e7a3.img.jpg_r_800x800_deabee4b.jpg']
+      showImages: false
     }
   },
   methods: {
@@ -36,6 +40,11 @@ export default {
   },
   components: {
     Gallary
+  },
+  computed: {
+    gallaryImgsNub: function () {
+      return this.gallaryImgs.length
+    }
   }
 }
 </script>
